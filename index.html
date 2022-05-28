@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <META NAME="robots" CONTENT="noindex,nofollow">
         <title>
-            Countdown timer
+            Until YCISCQ Holiday
         </title>
         <link href="https://fonts.googleapis.com/css?family=Nova+Mono&display=swap" rel="stylesheet">
 
@@ -67,6 +67,9 @@
                     <div id="demo" class="text"></div>
                 </div>
                 <div class="section border-bottom-class">
+                    <div id="weeks" class="text"></div>
+                </div>
+                <div class="section border-bottom-class">
                     <div id="days" class="text days-color"></div>
                 </div>
                 <div class="section border-bottom-class">
@@ -75,9 +78,12 @@
                 <div class="section border-bottom-class">
                     <div id="minutes" class="text minutes-color"></div>
                 </div>
-                <div class="section">
+                <div class="section border-bottom class">
                     <div id="seconds" class="text seconds-color"></div>
                 </div>
+                <div class="section">
+                    <div id="author" class="text"></div>
+                 </div>
             </div>
 
         <script>
@@ -98,22 +104,26 @@
                 // var p = distance;
 
                 // Time calculations for days, hours, minutes and seconds
+                var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var week_days = Math.floor(days - (weeks * 7))
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
                 // Display the result in the element with id="demo"
                 document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                document.getElementById("weeks").innerHTML = weeks + "w" + " and " + week_days + "d";
                 document.getElementById("days").innerHTML = days + " d";
                 document.getElementById("hours").innerHTML = Math.floor((distance / (1000 * 60 * 60))) + " h";
                 document.getElementById("minutes").innerHTML = Math.floor((distance / (1000 * 60))) + " m";
                 document.getElementById("seconds").innerHTML = Math.floor((distance / 1000)) + " s";
+                document.getElementById("author").innerHTML = "By Dahyuk";
 
                 // If the count down is finished, write some text
                 if (distance < 0) {
                     clearInterval(x);
-                    document.getElementById("demo").innerHTML = "EXPIRED";
+                    document.getElementById("demo").innerHTML = "Enjoy your holiday :)";
                 }
             }, 1000);
         </script>
